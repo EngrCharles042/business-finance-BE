@@ -1,0 +1,50 @@
+{
+  "name": "business-finance-backend-server",
+  "version": "1.0.0",
+  "description": "Business finance backend server",
+  "main": "dist/index.js",
+  "license": "ISC",
+  "author": "Godwin Okhakhayo <pgodwin287@gmail.com>",
+  "bugs": {
+    "url": "https://github.com/EngrCharles042/business-finance-BE/issues"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "compile": "tsc",
+    "compile:watch": "tsc --watch",
+    "dev": "concurrently --kill-others nodemon \"yarn compile:watch\""
+  },
+  "dependencies": {
+    "@nestjs/cli": "^10.3.2",
+    "axios": "^1.7.7",
+    "concurrently": "^9.0.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.1",
+    "express-rate-limit": "^7.4.1",
+    "helmet": "^8.0.0",
+    "joi": "^17.13.3",
+    "jsonwebtoken": "^9.0.2",
+    "morgan": "^1.10.0",
+    "nodemon": "^3.1.7",
+    "pg": "^8.13.0",
+    "sequelize": "^6.37.4",
+    "winston": "^3.15.0"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.17",
+    "@types/express": "^5.0.0",
+    "@types/node": "^22.7.7",
+    "@types/pg": "^8.11.10",
+    "typescript": "^5.6.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EngrCharles042/business-finance-BE.git"
+  },
+  "keywords": [
+    "business",
+    "finance"
+  ],
+  "homepage": "https://github.com/EngrCharles042/business-finance-BE#readme"
+}
