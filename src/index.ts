@@ -5,7 +5,7 @@ import { Server } from "http";
 import { Sequelize } from "sequelize";
 
 let server: Server;
-const sequelize = new Sequelize(
+export const sequelize = new Sequelize(
   config.postgres.databaseName,
   config.postgres.user,
   config.postgres.password,
