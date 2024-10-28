@@ -5,15 +5,9 @@ import { Server } from "http";
 import { Sequelize } from "sequelize";
 
 let server: Server;
-export const sequelize = new Sequelize(
-  config.postgres.databaseName,
-  config.postgres.user,
-  config.postgres.password,
-  {
-    host: config.postgres.host,
-    dialect: "postgres",
-  }
-);
+export const sequelize = new Sequelize(config.postgres.databaseURl, {
+  dialect: "postgres",
+});
 
 sequelize
   .authenticate()
@@ -21,7 +15,7 @@ sequelize
     logger.info("Connected to database");
 
     server = app.listen(config.port, () => {
-      logger.info(`Listening on port ${config.port}`);
+      logger.info(`Server listening on port ${config.port}`);
     });
   })
   .catch((err: any) => {
@@ -41,9 +35,9 @@ const existHandler = () => {
 };
 
 const unexpectedErrorHandler = (error: string) => {
-    logger.error(error);
-    existHandler();
-}
+  logger.error(error);
+  existHandler();
+};
 
 process.on("uncaughtException", unexpectedErrorHandler);
 process.on("unhandledRejection", unexpectedErrorHandler);
