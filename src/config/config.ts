@@ -1,4 +1,6 @@
 import Joi from "joi";
+import dotenv from "dotenv";
+dotenv.config();
 
 const envVarSchema = Joi.object()
   .keys({
@@ -6,11 +8,13 @@ const envVarSchema = Joi.object()
     PORT: Joi.number().default(5432),
     USER: Joi.string().description("postgres database username"),
     HOST: Joi.string().description("postgres database host"),
+    DATABASE_URL: Joi.string()
+      .description("postgres database url"),
     DATABASE_NAME: Joi.string()
       .description("postgres database name"),
     DATABASE_PASSWORD: Joi.string()
       .description("postgres database password"),
-    JWT_SECRET: Joi.string().required().description("jwt secret"),
+    JWT_SECRET: Joi.string().description("jwt secret"),
     JWT_ACCESS_EXPIRATION_MINUTE: Joi.number()
       .default(30)
       .description("jwt expiration minute"),
@@ -34,6 +38,7 @@ const config = {
   postgres: {
     user: envVar.USER,
     host: envVar.HOST,
+    databaseURl: envVar.DATABASE_URL,
     databaseName: envVar.DATABASE_NAME,
     password: envVar.DATABASE_PASSWORD,
   },

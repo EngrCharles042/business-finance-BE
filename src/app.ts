@@ -24,8 +24,8 @@ if (config.env === "production") {
   app.use("/v1/auth", authLimit);
 }
 
-// v1 api route
-app.use("v1");
+// // v1 api route
+// app.use("v1");
 
 // send 404 error for unknown route
 app.use((req, res, next) => {
